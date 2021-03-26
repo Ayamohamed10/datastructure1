@@ -1,53 +1,36 @@
-
-#include <iostream>
+#include<iostream>
 
 using namespace std;
 
-int main()
+void permute(const string &a, int low, int high)
 {
-   void permute( const string &str ) {  // function with one parameter
+char x;
+string s = a;
+if (low == high)
+cout << a << endl;
+else
+{
+for (int i = low; i <= high; i++)
+{
 
- int low = 0;
+//x = s[i];
+//s[i] = s[low];
+//s[low] = x;
 
- int high = str.length();
+permute(s, low+1, high);
 
- permute(str, low, high);
-
-}    
-
-
-void permute( const string &str, int low, int high)  
-
-
-{ string str1 = str;
-
- if ( low == high ) {
-   for (int i = 0; i <= high; ++i)
-
-     cout << str1[i]; }  
-
- else {
-
-   for (int i=low; i<high; ++i) {  
-     string temp = str1;   
-     swap( str1[i], str1[low] ); 
-
-     permute( str1, low + 1, high );  
-
-     swap( str1[i], str1[low] );     } 
-     } 
-    
-} 
-
-
-int main() {
-
- string str;
-
- cout << "Enter a string: ";
-
- cin >> str;
-
- permute(str);  }
-    return 0;
+//x = s[i];
+//s[i] = s[low];
+//s[low] = x;
+    }
 }
+}
+
+void permute(const string &str){
+permute(str,0,str.size()-1);
+}
+
+int main(){
+permute("abc");
+return 0;
+} 
